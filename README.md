@@ -22,7 +22,7 @@ This project combines both frontend and backend in a single React application:
 ### 1. Clone or download the project
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/andrepat0/demo-tts-openai.git
 cd realtime-tts-app
 ```
 
