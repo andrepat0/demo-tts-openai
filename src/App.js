@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import SimplifiedTTS from './components/SimplifiedTTS';
+import PerformanceTTS from './components/PerformanceTTS';
 
 function App() {
+  const [activeComponent, setActiveComponent] = useState('simple');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="app-container">
+      <div className="component-selector">
+        <button 
+          className={activeComponent === 'simple' ? 'active' : ''}
+          onClick={() => setActiveComponent('simple')}
         >
-          Learn React
-        </a>
-      </header>
+          Basic TTS
+        </button>
+        <button 
+          className={activeComponent === 'performance' ? 'active' : ''}
+          onClick={() => setActiveComponent('performance')}
+        >
+          TTS with Performance Analytics
+        </button>
+      </div>
+
+      <div className="component-container">
+        {activeComponent === 'simple' ? (
+          <SimplifiedTTS />
+        ) : (
+          <PerformanceTTS />
+        )}
+      </div>
     </div>
   );
 }
